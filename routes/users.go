@@ -1,21 +1,17 @@
 package routes
 
 import (
-	"encoding/json"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/utiiz/go-server/models"
 )
 
 func GetUsers(c *fiber.Ctx) error {
-	users := []models.User{
-		models.User{
-			Username: "utiiz",
-		},
-		models.User{
-			Username: "mavys",
-		},
+	users, err := models.GetUsers()
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"message": "Error getting all users - " + err.Error(),
+		})
 	}
 
-	return json.NewEncoder(c).Encode(users)
+	return c.Status(fiber.StatusOK).JSON(users)
 }

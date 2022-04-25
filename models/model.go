@@ -15,7 +15,8 @@ func Setup(c config.Config) {
 	connectionString := "host=%s user=%s password=%s dbname=%s port=%s sslmode=disable"
 	dsn := fmt.Sprintf(connectionString, c.Db.Address, c.Db.User, c.Db.Password, c.Db.Database, c.Db.Port)
 
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+
 	if err != nil {
 		panic(err)
 	}
