@@ -18,6 +18,10 @@ func Setup(c config.Config) {
 	}))
 
 	app.Get("/users", GetUsers)
+	app.Get("/users/:id", GetUser)
+	app.Post("/users", CreateUser)
+	app.Patch("/users", UpdateUser)
+	app.Delete("/users/:id", DeleteUser)
 
 	log.Fatal(app.Listen(fmt.Sprintf(":%s", c.Server.Port)))
 }

@@ -3,6 +3,7 @@ module github.com/utiiz/go-server
 go 1.16
 
 require (
+	github.com/fatih/color v1.13.0
 	github.com/gofiber/fiber/v2 v2.32.0
 	github.com/jackc/pgx/v4 v4.16.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
