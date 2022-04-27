@@ -5,7 +5,7 @@ type User struct {
 	Username  string  `json:"username"`
 	Firstname string  `json:"firstname"`
 	Issues    []Issue `json:"issues"`
-	CreatedAt int     `json:"created_at" gorm:"<-:create"`
+	CreatedAt int     `json:"created_at" gorm:"<-:create"` // Allow read and create but not update
 	UpdatedAt int     `json:"updated_at"`
 }
 

@@ -11,7 +11,7 @@ type Issue struct {
 	ID        uint64 `json:"id" gorm:"primaryKey"`
 	Summary   string `json:"summary"`
 	UserID    int    `json:"user_id"`
-	CreatedAt int    `json:"created_at" gorm:"<-:create"`
+	CreatedAt int    `json:"created_at" gorm:"<-:create"` // Allow read and create but not update
 	UpdatedAt int    `json:"updated_at"`
 }
 
