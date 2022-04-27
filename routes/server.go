@@ -23,5 +23,11 @@ func Setup(c config.Config) {
 	app.Patch("/users", UpdateUser)
 	app.Delete("/users/:id", DeleteUser)
 
+	app.Get("/issues", GetIssues)
+	app.Get("/issues/:id", GetIssue)
+	app.Post("/issues", CreateIssue)
+	app.Patch("/issues", UpdateIssue)
+	app.Delete("/issues/:id", DeleteIssue)
+
 	log.Fatal(app.Listen(fmt.Sprintf(":%s", c.Server.Port)))
 }

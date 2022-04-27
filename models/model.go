@@ -21,7 +21,7 @@ func Setup(c config.Config) {
 		panic(err)
 	}
 
-	err = db.AutoMigrate(&User{})
+	err = db.AutoMigrate(&User{}, &Issue{})
 	if err != nil {
 		panic(err)
 	}

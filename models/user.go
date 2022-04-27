@@ -1,15 +1,18 @@
 package models
 
 type User struct {
-	ID        uint64 `json:"id" gorm:"primaryKey"`
-	Username  string `json:"username"`
-	Firstname string `json:"firstname"`
+	ID        uint64  `json:"id" gorm:"primaryKey"`
+	Username  string  `json:"username"`
+	Firstname string  `json:"firstname"`
+	Issues    []Issue `json:"issues"`
+	CreatedAt int     `json:"created_at"`
+	UpdatedAt int     `json:"updated_at"`
 }
 
 func GetUsers() ([]User, error) {
 	var users []User
 
-	tx := db.Find(&users)
+	tx := db.Preload("Issues").Find(&users)
 	if tx.Error != nil {
 		return []User{}, tx.Error
 	}
@@ -20,7 +23,7 @@ func GetUsers() ([]User, error) {
 func GetUser(id uint64) (User, error) {
 	var user User
 
-	tx := db.Where("id = ?", id).First(&user)
+	tx := db.Preload("Issues").Where("id = ?", id).First(&user)
 	if tx.Error != nil {
 		return User{}, tx.Error
 	}

@@ -11,9 +11,8 @@ import (
 func main() {
 	config, err := config.LoadConfig()
 	if err != nil {
-		fmt.Println(config.Db.Address, err)
+		fmt.Println(err)
 	}
-	fmt.Println(config.Db.Address, err)
 	models.Setup(config)
 	routes.Setup(config)
 }
