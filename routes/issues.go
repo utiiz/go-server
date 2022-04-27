@@ -13,7 +13,7 @@ func GetIssues(c *fiber.Ctx) error {
 	if err != nil {
 		utils.Log(c, fiber.StatusInternalServerError)
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"message": "Error getting all users - " + err.Error(),
+			"message": "Error getting all issues - " + err.Error(),
 		})
 	}
 
@@ -34,7 +34,7 @@ func GetIssue(c *fiber.Ctx) error {
 	if err != nil {
 		utils.Log(c, fiber.StatusInternalServerError)
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"message": "Error getting user - " + err.Error(),
+			"message": "Error getting issue - " + err.Error(),
 		})
 	}
 
@@ -50,7 +50,7 @@ func CreateIssue(c *fiber.Ctx) error {
 	if err != nil {
 		utils.Log(c, fiber.StatusInternalServerError)
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"message": "Error parsing user - " + err.Error(),
+			"message": "Error parsing issue - " + err.Error(),
 		})
 	}
 
@@ -58,7 +58,7 @@ func CreateIssue(c *fiber.Ctx) error {
 	if err != nil {
 		utils.Log(c, fiber.StatusInternalServerError)
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"message": "Error creating user - " + err.Error(),
+			"message": "Error creating issue - " + err.Error(),
 		})
 	}
 
@@ -74,7 +74,7 @@ func UpdateIssue(c *fiber.Ctx) error {
 	if err != nil {
 		utils.Log(c, fiber.StatusInternalServerError)
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"message": "Error parsing user - " + err.Error(),
+			"message": "Error parsing issue - " + err.Error(),
 		})
 	}
 
@@ -82,7 +82,7 @@ func UpdateIssue(c *fiber.Ctx) error {
 	if err != nil {
 		utils.Log(c, fiber.StatusInternalServerError)
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"message": "Error updating user - " + err.Error(),
+			"message": "Error updating issue - " + err.Error(),
 		})
 	}
 
@@ -103,12 +103,12 @@ func DeleteIssue(c *fiber.Ctx) error {
 	if err != nil {
 		utils.Log(c, fiber.StatusInternalServerError)
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"message": "Error deleting user - " + err.Error(),
+			"message": "Error deleting issue - " + err.Error(),
 		})
 	}
 
 	utils.Log(c, fiber.StatusOK)
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
-		"message": "User deleted",
+		"message": "Issue deleted",
 	})
 }
