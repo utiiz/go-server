@@ -11,7 +11,7 @@ type Issue struct {
 	ID        uint64 `json:"id" gorm:"primaryKey"`
 	Summary   string `json:"summary"`
 	UserID    int    `json:"user_id"`
-	CreatedAt int    `json:"created_at"`
+	CreatedAt int    `json:"created_at" gorm:"<-:create"`
 	UpdatedAt int    `json:"updated_at"`
 }
 
